@@ -1,5 +1,5 @@
 # chips 
 
 ```
-> golang example
+golang example
 ```
