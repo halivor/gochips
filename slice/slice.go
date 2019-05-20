@@ -6,7 +6,16 @@ import (
 )
 
 func main() {
-	sliceBegin()
+	sliceLen()
+}
+
+func sliceLen() {
+	b := make([]byte, 1024, 2048)
+	fmt.Println("b := make([]byte, 1024, 2048), len", len(b), ", cap", cap(b))
+	b1 := b[0:0:1024]
+	fmt.Println("lb := b[0:0:1024],             len", len(b1), ", cap", cap(b1))
+	b2 := b[0:1024:1024]
+	fmt.Println("lb := b[0:1024:1024],          len", len(b2), ", cap", cap(b2))
 }
 
 func sliceBegin() {

@@ -5,6 +5,25 @@ import (
 	"unsafe"
 )
 
+type P struct {
+	uid  uint64 // local id
+	data uintptr
+	pid  uint64 // peer  id
+	cmd  uint16
+	len  uint16
+	cap  uint16
+	res  [10]byte
+	ptr  uintptr
+}
+
+func main() {
+	align()
+}
+
+func align() {
+	fmt.Println(unsafe.Sizeof(P{}))
+}
+
 type TT struct {
 	A int16
 	B int8
@@ -27,7 +46,7 @@ type T struct {
 	arr [988]byte
 }
 
-func main() {
+func sizeof() {
 	var ch chan int
 	fmt.Println("ch =>", unsafe.Sizeof(ch))
 	u := uint16(0)
@@ -37,8 +56,4 @@ func main() {
 	fmt.Println("[]byte =>", unsafe.Sizeof([]byte{}))
 	fmt.Println("array =>", unsafe.Sizeof([988]byte{}))
 	fmt.Println("T{} => ", unsafe.Sizeof(T{}))
-}
-
-func t() {
-	fmt.Println(unsafe.Sizeof(TT{}))
 }
