@@ -2,11 +2,27 @@ package main
 
 import (
 	"fmt"
+	"unicode/utf8"
 	"unsafe"
 )
 
 func main() {
-	sliceLen()
+	Nil()
+}
+
+func Nil() {
+	s := []string{"123", "234"}
+	fmt.Println(s)
+	s = s[3:]
+	fmt.Println(s)
+}
+
+func byteLen() {
+	fmt.Println("郭宏亮")
+	fmt.Println(len("郭宏亮"))
+	fmt.Println(len([]rune("郭宏亮")))
+	fmt.Println(utf8.RuneCount([]byte("郭宏亮")))
+	fmt.Println(utf8.RuneLen('郭'))
 }
 
 func sliceLen() {

@@ -7,7 +7,33 @@ import (
 )
 
 func main() {
-	writer()
+	del()
+}
+
+func del() {
+	m := map[int]int{
+		1: 1,
+		2: 2,
+		3: 3,
+		4: 4,
+		5: 5,
+		6: 6,
+	}
+
+	for k, v := range m {
+		if k == 3 {
+			delete(m, 3)
+		}
+		fmt.Println(k, v)
+	}
+
+	for k, v := range m {
+		if k == 2 {
+			delete(m, 2)
+		}
+		fmt.Println(k, v)
+	}
+	fmt.Println(m)
 }
 
 func writer() {

@@ -9,6 +9,7 @@ func main() {
 		switch {
 		case i < 10:
 			fmt.Println(10)
+			break
 		case i < 100:
 			fmt.Println(100)
 		case i < 1000:

@@ -2,11 +2,34 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
 func main() {
-	ticker()
+	sub()
+}
+
+func sub() {
+	fmt.Println(time.Now().Sub(time.Now().Add(time.Minute)) < 0)
+	now := time.Now()
+	fmt.Println(now)
+	after := now.Sub(time.Now().Add(-time.Minute))
+	fmt.Println(now, uint64(time.Minute), uint64(after))
+}
+
+func timer() {
+	tm := time.NewTimer(time.Second * 5)
+	tk := time.NewTicker(time.Second * 3)
+	for {
+		select {
+		case <-tm.C:
+			log.Println("tmo")
+			tm = time.NewTimer(time.Second * 5)
+		case <-tk.C:
+			log.Println("ticker")
+		}
+	}
 }
 
 func ticker() {
