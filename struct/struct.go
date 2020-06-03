@@ -24,6 +24,9 @@ func main() {
 	fmt.Println(unsafe.Sizeof(buffer{}))
 	b := &buffer{}
 	fmt.Println(unsafe.Sizeof(b.ptr))
+
+	var s *TS
+	s.Print()
 }
 
 // -----------------------------
@@ -56,4 +59,10 @@ func ts() {
 	fmt.Println(unsafe.Offsetof(a.Uid))
 	fmt.Println(unsafe.Offsetof(a.Cid))
 	fmt.Println(unsafe.Sizeof(TT{}))
+}
+
+func (ts *TS) Print() {
+	if ts == nil {
+		fmt.Println("no panic and ts is nil")
+	}
 }

@@ -1,13 +1,28 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
 )
 
 func main() {
-	del()
+	pack()
+}
+
+func pack() {
+	m := map[string]interface{}{
+		"string": "hello",
+		"struct": struct{}{},
+		"data":   map[string]string{"hello": "world"},
+	}
+
+	n := map[string]interface{}{"key": struct{}{}, "val": struct{}{}}
+	pb, _ := json.Marshal(m)
+	fmt.Println(string(pb))
+	pb, _ = json.Marshal(n)
+	fmt.Println(string(pb))
 }
 
 func del() {
