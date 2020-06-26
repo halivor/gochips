@@ -5,10 +5,20 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"reflect"
 )
 
 func main() {
-	pack()
+	ints()
+}
+
+func ints() {
+	pb := []byte(`{"file_id" : 100}`)
+	st := map[string]interface{}{}
+	json.Unmarshal(pb, &st)
+	fmt.Println(st)
+	to := reflect.TypeOf(st["file_id"])
+	fmt.Println(to.Name(), int64(st["file_id"].(float64)))
 }
 
 func pack() {
